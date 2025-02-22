@@ -1,0 +1,356 @@
+/* 基础变量 */
+:root {
+    --primary-color: #3498db;     /* 主蓝 */
+    --secondary-color: #2ecc71;   /* 辅绿 */
+    --accent-color: #9b59b6;      /* 强调紫 */
+    --background: #f5f6fa;        /* 页面背景 */
+    --text-dark: #2c3e50;         /* 深色文字 */
+    --text-light: #7f8c8d;        /* 浅色文字 */
+    --border-color: #dfe6e9;      /* 边框色 */
+}
+
+/* 基础样式 */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: var(--background);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* 主容器 */
+.main-container {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 25px;
+    max-width: 1400px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+/* 左侧控制面板 */
+.control-panel {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.theme-switcher {
+    display: flex;
+    gap: 8px;
+}
+
+/* 控件组 */
+.control-group {
+    margin: 15px 0;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.control-label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+/* 输入控件 */
+.styled-select {
+    width: 100%;
+    padding: 8px 12px;
+    border: 2px solid var(--border-color);
+    border-radius: 6px;
+    background: white;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.styled-select:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.input-group input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 2px solid var(--border-color);
+    border-radius: 6px;
+}
+
+/* 滑块组件 */
+.slider-group {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.slider-container {
+    margin: 15px 0;
+}
+
+input[type="range"] {
+    appearance: none;
+    width: 100%;
+    height: 6px;
+    background: var(--border-color);
+    border-radius: 3px;
+    margin: 10px 0;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+.value-display {
+    color: var(--primary-color);
+    font-weight: bold;
+    margin-left: 8px;
+}
+
+/* 按钮样式 */
+.primary-btn {
+    background: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s;
+}
+/* 使用提示区域 */
+.tips-section {
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    padding: 25px;
+    margin-bottom: 20px;
+  }
+  
+.secondary-btn {
+    background: var(--secondary-color);
+    color: white;
+    /* 其他样式同上 */
+}
+
+button:hover {
+    filter: brightness(0.9);
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    color: var(--text-light);
+    padding: 8px;
+    border-radius: 50%;
+}
+
+.icon-btn:hover {
+    background: #f8f9fa;
+}
+
+/* 可视化区域 */
+.visualization-panel {
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: 20px;
+}
+
+.plot-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.plot-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+#3d-container, #plot {
+    width: 100%;
+    height: 300px;
+    border-radius: 8px;
+}
+
+.legend {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9em;
+}
+
+.legend-color {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
+    background: var(--primary-color);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .main-container {
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+
+    #3d-container, #plot {
+        height: 250px;
+    }
+}
+/* 3D输入组优化 */
+.spaced-input-group {
+    gap: 12px !important; /* 增加输入框和按钮的间距 */
+    margin-top: 8px;
+}
+
+.flex-input {
+    flex: 1;
+    padding: 10px 14px !important; /* 增加输入框内边距 */
+}
+
+.spaced-button {
+    padding: 10px 16px !important; /* 调整按钮内边距 */
+    white-space: nowrap;
+}
+
+/* 工具按钮分组 */
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* 组间垂直间距 */
+    margin-top: 15px;
+}
+
+.btn-row {
+    display: flex;
+    gap: 10px; /* 按钮间水平间距 */
+    width: 100%;
+}
+
+.btn-row button {
+    flex: 1; /* 按钮等宽分布 */
+}
+
+/* 响应式优化 */
+@media (max-width: 768px) {
+    .btn-row {
+        flex-direction: column; /* 小屏幕下按钮垂直排列 */
+    }
+    
+    .spaced-input-group {
+        flex-direction: column; /* 小屏幕下输入框和按钮垂直排列 */
+    }
+    
+    .flex-input {
+        width: 100%;
+    }
+    
+    .spaced-button {
+        width: 100%;
+        justify-content: center;
+    }
+}
+/* 主容器保持网格布局 */
+.main-container {
+    display: grid;
+    grid-template-columns: 280px 1fr; /* 确保左右面板并排 */
+    gap: 25px;
+    max-width: 1400px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+/* 新增样式 */
+.spaced-input-group {
+    gap: 12px !important;
+    margin-top: 8px;
+}
+
+.flex-input {
+    flex: 1;
+    padding: 10px 14px !important;
+}
+
+.spaced-button {
+    padding: 10px 16px !important;
+    white-space: nowrap;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.btn-row {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+.btn-row button {
+    flex: 1;
+}
+
+/* 响应式优化 */
+@media (max-width: 768px) {
+    .main-container {
+        grid-template-columns: 1fr;
+    }
+
+    .btn-row {
+        flex-direction: column;
+    }
+
+    .spaced-input-group {
+        flex-direction: column;
+    }
+
+    .flex-input, .spaced-button {
+        width: 100%;
+    }
+}
