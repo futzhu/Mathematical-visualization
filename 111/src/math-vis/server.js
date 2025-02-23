@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3000;
 // 中间件配置
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'math-vis')));
 
 // 增强的导数计算API
 app.post('/api/derivative', (req, res) => {

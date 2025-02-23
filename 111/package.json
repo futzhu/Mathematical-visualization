@@ -7,7 +7,9 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "mkdir -p bin && cp -r src/math-vis/* bin/math-vis/",
+    "start": "node bin/math-vis/server.js"
   },
   "keywords": [],
   "author": "",
